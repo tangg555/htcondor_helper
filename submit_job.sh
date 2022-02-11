@@ -7,13 +7,15 @@ usage() {
 }
 
 # need at least 2 args
-if [ $# -gt 2 ]; then
+echo "args:$#"
+if [ $# -gt 1 ]; then
     submit_file=$1
     scripts_with_submit=$@
 else
     usage
     exit 1
 fi
+
 
 submit_job() {
     script=$1
