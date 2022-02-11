@@ -15,19 +15,25 @@ else
     exit 1
 fi
 
-
 submit_job() {
     script=$1
     script_name=${script%.*}
 
-    # replace the env variables of submit_file
-    sed -i "s/SCRIPT/$script/g" $submit_file
-    sed -i "s/SCRIPT_NAME/$script_name/g" $submit_file
 
-    condor_submit $submit_file
+    # avoid destoying the original file
+    submit_file_tmp=${submit_file}_tmp
+    cp $submit_file $submit_file_tmp
+
+    # replace the env variables of submit_file
+    sed -i "s/SCRIPT/$script/g" $submit_file_tmp
+    sed -i "s/JOB_NAME/$script_name/g" $submit_file_tmp
+
+    condor_submit $submit_file_tmp
 
     echo "condor_submit $submit_file $script"
 
+    # remove the tmp file
+    rm $submit_file_tmp
     return 0
 }
 

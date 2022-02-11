@@ -6,8 +6,8 @@
 
 # --------------------------------------------
 # Executable and its arguments
-executable    = $ENV(PWD)/train_gpt.sh
-JobBatchName = train_gpt.sh_NAME
+executable    = $ENV(PWD)/SCRIPT
+JobBatchName = JOB_NAME
 
 # ---------------------------------------------------
 # Universe (vanilla, docker)
