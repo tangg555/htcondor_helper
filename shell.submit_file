@@ -38,9 +38,9 @@ requirements = (CUDAGlobalMemoryMb > 12000) && (CUDACapability > 5.0)
 request_GPUs     = 1
 # this needs to be specified for the AI@Surrey cluster if requesting a GPU
 # MB
-+GPUMem          = 48000 
++GPUMem          = 24000 
 request_CPUs     = 1
-request_memory   = 12G
+request_memory   = 64G
 
 #This job will complete in less than x hour
 +JobRunTime = 72

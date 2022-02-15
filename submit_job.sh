@@ -16,7 +16,6 @@ else
     exit 1
 fi
 
-
 submit_job() {
     script=$1
     script_name=${script%.*}
